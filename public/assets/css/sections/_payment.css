@@ -1,0 +1,39 @@
+/*----------------------------------------------
+    ## payment
+----------------------------------------------*/
+.payment img {
+  vertical-align: middle;
+  width: 100%; }
+
+.payment {
+  background: url(../images/banner/m1.jpg) no-repeat 0px 0px;
+  background-size: cover; }
+
+i.fa.fa-cc-visa,
+i.fa.fa-cc-mastercard,
+i.fa.credit.fa-credit-card-alt,
+i.fa.fa-credit-card-alt {
+  font-size: 7em; }
+
+i.fa.fa-cc-visa {
+  color: #ffffff; }
+
+i.fa.fa-cc-mastercard {
+  color: #ffffff; }
+
+i.fa.credit.fa-credit-card-alt {
+  color: #ffffff; }
+
+i.fa.fa-credit-card-alt {
+  color: #ffffff; }
+
+.payment h5 {
+  font-size: 1.2em;
+  margin: 1em 0 0;
+  color: #ffb900;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-family: 'Ropa Sans', sans-serif; }
+
+.payment-grid {
+  text-align: center; }

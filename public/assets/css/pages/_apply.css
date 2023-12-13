@@ -1,0 +1,76 @@
+/*----------------------------------------------
+    ## Apply Loan
+----------------------------------------------*/
+.apply_form_area {
+  padding-top: 150px;
+  padding-bottom: 150px; }
+  .apply_form_area .apply_form {
+    border: 1px solid #E8E8E8;
+    border-radius: 5px;
+    padding: 50px; }
+    .apply_form_area .apply_form .apply_info_text {
+      margin-bottom: 40px; }
+      .apply_form_area .apply_form .apply_info_text h3 {
+        font-size: 30px;
+        font-weight: 400;
+        margin-bottom: 21px; }
+      .apply_form_area .apply_form .apply_info_text p {
+        margin-bottom: 0; }
+    .apply_form_area .apply_form .single_field input,
+    .apply_form_area .apply_form .single_field textarea {
+      width: 100%;
+      height: 50px;
+      border: 1px solid #E8E8E8;
+      padding: 14px 20px;
+      border-radius: 5px;
+      margin-bottom: 15px; }
+      .apply_form_area .apply_form .single_field input::-webkit-input-placeholder,
+      .apply_form_area .apply_form .single_field textarea::-webkit-input-placeholder {
+        color: #7A838B;
+        font-weight: 400;
+        font-size: 16px; }
+      .apply_form_area .apply_form .single_field input:-ms-input-placeholder,
+      .apply_form_area .apply_form .single_field textarea:-ms-input-placeholder {
+        color: #7A838B;
+        font-weight: 400;
+        font-size: 16px; }
+      .apply_form_area .apply_form .single_field input::-ms-input-placeholder,
+      .apply_form_area .apply_form .single_field textarea::-ms-input-placeholder {
+        color: #7A838B;
+        font-weight: 400;
+        font-size: 16px; }
+      .apply_form_area .apply_form .single_field input::placeholder,
+      .apply_form_area .apply_form .single_field textarea::placeholder {
+        color: #7A838B;
+        font-weight: 400;
+        font-size: 16px; }
+      .apply_form_area .apply_form .single_field input:focus,
+      .apply_form_area .apply_form .single_field textarea:focus {
+        outline: none; }
+    .apply_form_area .apply_form .single_field textarea {
+      height: 192px; }
+  .apply_form_area .pay_text p {
+    font-size: 16px;
+    color: #7A838B;
+    font-weight: 400;
+    margin: 8px 0 27px 0; }
+    .apply_form_area .pay_text p span {
+      color: #040E27; }
+  .apply_form_area .nice-select {
+    white-space: normal;
+    width: auto;
+    height: 50px !important;
+    margin-bottom: 15px;
+    width: 100%;
+    line-height: 50px !important;
+    font-size: 16px;
+    color: #7A838B; }
+  .apply_form_area .nice-select:active,
+  .apply_form_area .nice-select.open,
+  .apply_form_area .nice-select:focus {
+    border-color: #E8E8E8; }
+  .apply_form_area .submit_btn {
+    margin-top: 30px; }
+    .apply_form_area .submit_btn button {
+      width: 100%;
+      text-align: center; }

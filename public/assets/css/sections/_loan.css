@@ -1,0 +1,18 @@
+/*----------------------------------------------
+    ## Loan
+----------------------------------------------*/
+.apply_loan {
+  background-image: url(../img/banner/loan.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 137px 0; }
+  .apply_loan.overlay::before {
+    opacity: .4; }
+  .apply_loan .loan_text h3 {
+    font-size: 44px;
+    font-weight: 400;
+    color: #fff;
+    margin-bottom: 0;
+    line-height: 56px; }
+  .apply_loan .loan_btn {
+    text-align: right; }

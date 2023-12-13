@@ -1,0 +1,122 @@
+/*----------------------------------------------
+    ## Banner
+----------------------------------------------*/
+
+.style-two {
+  .banner-inner-area {
+    background: transparent;
+    box-shadow: none;
+    .title,
+    .subtitle,
+    p,
+    h5 {
+      color: $color-white;
+    }
+  }
+}
+
+.banner-slider {
+  .bg-one {
+    background: url(../../img/banner/1.png);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+  .bg-two {
+    background: url(../../img/banner/2.png);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+  .bg-three {
+    background: url(../../img/banner/3.png);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+  .owl-nav {
+    button {
+      border-radius: 50%;
+      background-color: rgb(255, 255, 255);
+      box-shadow: 0px 5px 15px 0px rgba(29, 204, 112, 0.25);
+      width: 70px;
+      height: 70px;
+      color: rgb(55, 125, 255);
+      font-size: 30px;
+      font-weight: 700;
+      transition: $transition;
+      border: 0;
+      &:hover {
+        background: rgb(55, 125, 255);
+        color: $color-white;
+        cursor: pointer;
+      }
+      &.owl-prev {
+        position: absolute;
+        left: 20px;
+        top: 50%;
+        margin-top: -45px;
+      }
+      &.owl-next {
+        position: absolute;
+        margin-top: -45px;
+        right: 20px;
+        top: 50%;
+      }
+    }
+  }
+}
+
+.banner-inner-area {
+  background: #fff;
+  border-radius: 5px;
+  padding: 35px 40px 50px;
+  margin: 102px 0;
+  box-shadow: 0px 0px 15px 0px rgba(212, 212, 212, 0.78);
+  .subtitle {
+    margin-bottom: 21px;
+    font-size: 20px;
+  }
+  .title {
+    color: $color-black;
+    font-weight: 600;
+    margin-bottom: 20px;
+  }
+  p {
+    color: $color-black;
+    &.brd-1 {
+      border-bottom: 1px solid #ececec;
+      margin-bottom: 33px;
+      padding-bottom: 33px;
+    }
+  }
+  h5 {
+    font-weight: 600;
+    margin-bottom: 6px;
+    color: #292929;
+  }
+  .nice-select {
+    width: 100%;
+    margin: 12px 0 23px 0;
+    color: $color-black;
+    border: 1px solid #ececec;
+    border-radius: 5px;
+    font-size: 16px;
+    height: 54px;
+    line-height: 54px;
+    &.open .list {
+      width: 100%;
+    }
+    &:after {
+      border-bottom: 3px solid #999;
+      border-right: 3px solid #999;
+      height: 8px;
+      margin-top: -4px;
+      right: 22px;
+      width: 8px;
+    }
+  }
+  .btn {
+    margin-top: 23px;
+  }
+}

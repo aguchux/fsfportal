@@ -1,0 +1,166 @@
+/*----------------------
+    signin popup
+----------------------*/
+
+.signin-signup-popup {
+    position: fixed;
+    z-index: 999999;
+    width: 30%;
+    height: 100%;
+    left: -100%;
+    top: 0;
+    background-color: #FFFFFF;
+    -webkit-transition: all 0.5s ease-in;
+    -o-transition: all 0.5s ease-in;
+    transition: all 0.5s ease-in;
+}
+
+.signin-signup-popup.active {
+    left: 0;
+}
+
+.signin-signup-popup .signin-signup-part {
+    background-color: #FFFFFF;
+    padding: 0 30px;
+    height: 100%;
+    position: relative;
+    top: 10%;
+}
+
+.signin-signup-popup .form-popup-bottom {
+    margin-top: 30px;
+}
+
+.signin-signup-popup .form-popup-bottom .when-click-change {
+    color: #ec4760;
+    cursor: pointer;
+}
+
+.signin-signup-popup .forget-password-link {
+    color: #4A4857;
+    float: right;
+}
+
+.signin-signup-popup .cross-icon {
+    position: absolute;
+    top: 50px;
+    right: 50px;
+    color: #377dff;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.signin-signup-popup button {
+    width: 100%;
+}
+
+.signin-signup-popup .when-click-change-signin,
+.signin-signup-popup .when-click-change-signup-inner {
+    color: #ec4760;
+    cursor: pointer;
+}
+
+.signin-signup-popup .part-active {
+    display: block;
+}
+
+.signin-signup-popup .part-hide {
+    display: none;
+}
+
+.signin-signup-popup .template-large-button {
+    color: #FFFFFF;
+    background-color: #377dff;
+    border: 1px solid transparent;
+}
+
+
+/* Form */
+
+.form-style-01 {
+    padding: 60px 40px;
+    background-color: rgba(58, 51, 96, 0.9);
+    border-radius: 5px;
+    .input-title {
+        color: $color-white;
+        font-size: 20px;
+        display: block;
+    }
+    select,
+    input {
+        padding: 12px 24px;
+        border-radius: 5px;
+        border: 1px solid $color-gray;
+        background-color: $color-white;
+        width: 100%;
+        margin: 20px 0 30px;
+    }
+    .form-price {
+        position: relative;
+        width: 145px;
+        margin: auto;
+        sup {
+            color: $color-white;
+            position: absolute;
+            top: 24px;
+            left: -15px;
+            font-size: 18px;
+        }
+        .price-number {
+            color: $color-pink;
+            font-size: 50px;
+            font-weight: 700;
+        }
+        span {
+            color: $color-white;
+        }
+    }
+    button {
+        color: $color-white;
+        background-color: $color-blue-3;
+        font-size: 18px;
+        margin-top: 30px;
+        padding: 12px 24px;
+        border-radius: 5px;
+        border: 1px solid transparent;
+        width: 100%;
+        transition: $transition;
+        cursor: pointer;
+        &:hover {
+            color: $color-white;
+            background: $color-blue-3;
+            box-shadow: 0 10px 10px #ED517333;
+        }
+    }
+    .form-button-02 {
+        background-color: $color-pink;
+        &:hover {
+            background-color: $color-pink;
+            box-shadow: 0 10px 10px #7AC5344D;
+        }
+    }
+}
+
+.form-style-02 {
+    .input-title {
+        color: $color-blue-3;
+        font-size: 24px;
+        font-weight: 600;
+        display: block;
+        text-align: left;
+        margin-top: 15px;
+    }
+    select,
+    input,
+    textarea {
+        background-color: $color-white;
+        padding: 12px 24px;
+        border-radius: 5px;
+        border: 1px solid $color-blue-3;
+        width: 100%;
+        margin: 15px 0;
+    }
+    button {
+        margin-top: 15px;
+    }
+}

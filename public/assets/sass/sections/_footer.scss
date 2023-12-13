@@ -1,0 +1,50 @@
+/*--------------------------------------------------
+    ##Footer
+---------------------------------------------------*/
+.footer-area {
+	background: url(../../img/footer/bg.png);
+    background-position: center;
+    background-size: cover;
+    margin-top: -86px;
+    z-index: 0;
+    padding: 183px 0 57px;
+}
+.footer-inner {
+	.widget-contact {
+		p {
+			margin-bottom: 21px;
+		}
+		.social-area {
+			li a {
+				color: $color-blue;
+				&:hover {
+					color: $color-white;
+				}
+			}
+		}
+	}
+}
+.footer-bottom {
+	padding: 29px 0;
+	ul {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+		display: inline-flex;
+		li {
+			font-size: 18px;
+			margin-right: 18px;
+			color: $color-black;
+			a {
+
+			}
+		}
+	}
+	.copy-right {
+		font-size: 18px;
+		color: $color-black;
+	}
+}
+.footer-inner-2 .widget-contact .social-area li a:hover {
+	background: $color-pink;
+}
