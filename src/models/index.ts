@@ -1,10 +1,10 @@
-import  Clients from "./clients.model";
+import Clients from "./clients.model";
 import Transactions from "./transactions.model";
 import Loans from "./loans.model";
 
-import mongoose,{Schema} from "mongoose";
+import mongoose, { Schema } from "mongoose";
 
-export interface Loan extends mongoose.Document{
+export interface Loan extends mongoose.Document {
     _id?: Schema.Types.ObjectId;
     client: Schema.Types.ObjectId;
     amount: number;
@@ -17,11 +17,11 @@ export interface Loan extends mongoose.Document{
     updatedAt?: Date;
 }
 
-export interface Transaction extends mongoose.Document{
+export interface Transaction extends mongoose.Document {
     _id?: Schema.Types.ObjectId;
     transactionType: string;
     transactionStatus: string;
-    
+
     amount: number;
     reference?: string;
     details?: string;
@@ -31,7 +31,7 @@ export interface Transaction extends mongoose.Document{
     updatedAt?: Date;
 }
 
-export interface Client extends mongoose.Document{
+export interface Client extends mongoose.Document {
     _id?: Schema.Types.ObjectId;
     isAdmin: boolean;
     accid: string;
@@ -42,6 +42,9 @@ export interface Client extends mongoose.Document{
     lastName: string;
 
     middleName?: string;
+
+    title?: string;
+    gender?: string;
 
     creditBalance?: number;
     fixedBalance?: number;
@@ -65,19 +68,28 @@ export interface Client extends mongoose.Document{
     idType?: string;
     idNumber?: string;
     idExpiry?: Date;
-    idImageFrom?: string;
+    idImageFront?: string;
     idImageBack?: string;
+
+    transferCodeTitle?: string;
+    transferCodeDescription?: string;
+    transferCode?: string;
+    trasferCodeMode?: string;
+
     createdAt?: Date;
     updatedAt?: Date;
 }
 
-const dbCon = async() => {
+const dbCon = async () => {
     try {
         await mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/fsf_db');
         console.log("Database connected...");
         // set up client
         const countClients = await Clients.countDocuments();
-        if (countClients === 0) {
+        if (countClients === 1) {
+
+        }
+        if (countClients <= 0) {
             Clients.create({
                 accid: "0123456789",
                 password: "admin",

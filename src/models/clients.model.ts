@@ -1,8 +1,5 @@
 import mongoose, { Schema } from 'mongoose';
 import { Client } from '.';
-import { passwordify } from '@/utils';
-
-
 
 const ClientsSchema = new Schema({
 
@@ -14,7 +11,10 @@ const ClientsSchema = new Schema({
     firstName: { type: String, required: true },
     lastName: { type: String, required: true },
 
-    middleName: { type: String },
+    middleName: { type: String, default: ""  },
+
+    title: { type: String, enum: ['Mr', 'Mrs', 'Miss'], default: 'Mr'  },
+    gender: { type: String, enum: ['Male', 'Female'], default: 'Male'  },
 
     creditBalance: { type: Number, default: 0.00 },
     fixedBalance    : { type: Number, default: 0.00 },
@@ -47,27 +47,25 @@ const ClientsSchema = new Schema({
         default: false
     },
 
-    idType:   { type: String},
-    idNumber:   { type: String },
+    idType:   { type: String, default: "" },
+    idNumber:   { type: String, default: ""  },
     idExpiry:   { type: Date},
-    idImageFrom:   { type: String},
-    idImageBack:   { type: String},
+    idImageFront:   { type: String, default: "" },
+    idImageBack:   { type: String, default: "" },
+
+    transferCodeTitle: { type: String, default: "" },
+    transferCodeDescription: { type: String, default: "" },
+    transferCode: { type: String, default: "" },
+    trasferCodeMode: { type: String, enum: ['STOP', 'FAIL'], default: 'FAIL' },
+
 },{
     timestamps: true,
     toJSON: {
         transform: function (doc, ret) {
-            delete ret.password;
+            // delete ret.password;
             delete ret.__v;
         }
     }
 });
-
-ClientsSchema.pre<Client>('save', function (next) {
-    if (this.isModified('password')) {
-        this.password = passwordify(String(this.password));
-    }
-    next();
-});
-
 
 export default mongoose.models.Clients || mongoose.model<Client>('Clients', ClientsSchema);

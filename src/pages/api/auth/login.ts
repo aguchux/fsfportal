@@ -1,7 +1,6 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from 'next'
 import dbcon, { Client } from '@/models';
-import { verifyPassword } from '@/utils';
 import { signToken } from '@/utils';
 import { setCookie } from 'cookies-next';
 
@@ -15,7 +14,7 @@ export default async function handler(
     const client = await Clients.findOne({accid:accid});
 
     if(!client) return res.status(400).json({success:false, message:"Invalid username or password"});    
-    const isPasswordVerified = verifyPassword(password, client.password);
+    const isPasswordVerified = Boolean(password === client.password);
     if(!isPasswordVerified) return res.status(400).json({success:false, message:"Invalid username or password"});
 
     const payload = {
