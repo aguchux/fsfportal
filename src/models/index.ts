@@ -50,6 +50,10 @@ export interface Client extends mongoose.Document{
     accountType?: string;
     accountCurrency?: string;
 
+    swiftCode: string;
+    sortCode: string;
+    routingNumber: string;
+
     emailNotice?: boolean;
     smsNotice?: boolean;
 

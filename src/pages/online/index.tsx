@@ -29,7 +29,6 @@ const OnlineIndex = () => {
 
   return (
     <OnlineLayout>
-
       <div className='row'>
         <div className='col-md-4 col-sm-12'>
           <div className='bg-white rounded-lg p-4 min-h-[138px] shadow-lg'>
@@ -38,7 +37,10 @@ const OnlineIndex = () => {
             </Link>
             <div className='text-gray-500'>Account Number</div>
             <div className='text-4xl font-bold text-green-800'>{client?.accid}</div>
-            <span className='m-0 p-0 text-gray-400'><strong>IBAN: </strong>454-0044-303</span>
+            <div className="grid grid-cols-2">
+              <span className='m-0 p-0 text-gray-400 text-md'><strong>SWIFT: </strong>{client?.swiftCode}</span>
+              <span className='m-0 p-0 text-gray-400 text-md'><strong>SORT: </strong>{client?.sortCode}</span>
+            </div>
           </div>
         </div>
         <div className='col-md-4 col-sm-12'>
