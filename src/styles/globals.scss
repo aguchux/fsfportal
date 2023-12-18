@@ -1,6 +1,6 @@
-// @tailwind base;
-// @tailwind components;
-// @tailwind utilities;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 @import '../../public/assets/css/vendor.css';
 @import '../../public/assets/css/nice-select.css';
@@ -9,11 +9,12 @@
 @import '../../public/assets/css/responsive.css';
 
 
-// <link rel="stylesheet" href="/assets/css/vendor.css" />
-//       <link rel="stylesheet" href="/assets/css/nice-select.css" />
-//       <link
-//         rel="stylesheet"
-//         href="/assets/css/magnific-popup.css"
-//       />
-//       <link rel="stylesheet" href="/assets/css/style.css" />
-//       <link rel="stylesheet" href="/assets/css/responsive.css" />
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  @apply bg-white w-full text-left;
+
+}
+table tbody tr {
+  @apply border-b bg-gray-100 shadow-md hover:bg-[#363636] hover:text-white;
+}

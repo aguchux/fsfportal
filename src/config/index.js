@@ -9,6 +9,15 @@ import PrivacyPolicy from "@/components/pages/PrivacyPolicy";
 import SecurityTrust from "@/components/pages/SecurityTrust";
 import TermsCondition from "@/components/pages/TermsCondition";
 
+
+export const IMAGES = {
+  favicon: require("@assets/img/favicon.png"),
+  logo: require("@assets/img/logo.png"),
+  logo_2: require("@assets/img/logo-2.png"),
+  phone_img : require("@assets/img/icon/phone.png"),
+  clock_img : require("@assets/img/icon/clock.png"),
+}
+
 export const config = {
   siteTitle: "First Security Fianance",
   siteDescription: "First Security Fianance",
@@ -20,8 +29,9 @@ export const config = {
   siteOpenHours: "Mon-Fri (10 AM - 6 PM)",
   siteFooterAbout:
     "First Security Finance Bank has been at the forefront of providing reliable and innovative financial solutions to individuals, businesses, and communities across the United States.",
-  siteLoginUrl: "#",
-  siteRegisterUrl: "#",
+  siteLoginUrl: "/auth",
+  siteRegisterUrl: "/auth",
+  siteLogoutUrl: "/auth",
 };
 
 export const menus = [
