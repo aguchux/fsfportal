@@ -60,7 +60,7 @@ const LoginForm = () => {
     return (
         <div className="min-h-[300px] flex justify-center items-center bg-white my-20">
             <form onSubmit={handleSubmit}>
-            <div className="p-10 border-[1px] -mt-10 border-slate-200 rounded-md flex flex-col items-center space-y-3">
+            <div className="p-10 border-[1px] bg-gray-100 -mt-10 border-slate-200 rounded-md flex flex-col items-center space-y-3">
                 <div className="py-8">
                     <Image width={100} className="-mt-10" src={IMAGES.favicon} alt='' />
                 </div>
@@ -78,7 +78,7 @@ const LoginForm = () => {
                 <div className="flex flex-col space-y-5 w-full">
                     <button aria-disabled={busy} disabled={busy} className="w-full bg-[#0070ba] rounded-3xl p-3 text-white font-bold transition duration-200 hover:bg-[#003087]">Log in</button>
                     <div className="flex items-center justify-center border-t-[1px] border-t-slate-300 w-full relative">
-                        <div className="-mt-1 font-bod bg-white px-5 absolute">Or</div>
+                        <div className="-mt-1 font-bod px-5 absolute">Or</div>
                     </div>
                     <a href='#' className="w-full text-center border-blue-900 hover:border-[#003087] hover:border-[2px] border-[1px] rounded-3xl p-3 text-[#0070ba] font-bold transition duration-200">Sign Up</a>
                 </div>

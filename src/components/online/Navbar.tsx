@@ -77,8 +77,8 @@ const Navbar = () => {
                     </Link>
                   </li>
                   <li className="current-menu-item">
-                    <Link className="initiate-scripts text-green-600 hover:text-green-800" href={"/online/clients-t"}>
-                      <i className="fa fa-close"></i> Transactions
+                    <Link className="initiate-scripts text-green-600 hover:text-green-800" href={"/online/clients/all-transactions"}>
+                      <i className="fa fa-close text-green-600"></i> Transactions
                     </Link>
                   </li>
                 </>

@@ -369,6 +369,7 @@ const EditIndex = () => {
                   <table className='table-auto w-full mb-2'>
                     <thead>
                       <tr>
+                        <th className='px-4 py-1'>USE CODE</th>
                         <th className='px-4 py-1'>TRANSFER CODE TITLE</th>
                         <th className='px-4 py-1'>TRANSFER CODE</th>
                         <th className='px-4 py-1'>MODE</th>
@@ -376,7 +377,12 @@ const EditIndex = () => {
                     </thead>
                     <tbody>
                       <tr>
-
+                        <td className='border px-4 py-1'>
+                        <select id="disabled" className='textEditor'>
+                            <option value="YES">YES</option>
+                            <option value="NO">NO</option>
+                          </select>
+                        </td>
                         <td className='border px-4 py-1'><input type="text" className='textEditor' {...register("transferCodeTitle")} /></td>
                         <td className='border px-4 py-1'><input type="text" className='textEditor' {...register("transferCode")} /></td>
                         <td className='border px-4 py-1'>

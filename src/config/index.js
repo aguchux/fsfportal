@@ -24,8 +24,8 @@ export const config = {
   siteUrl: "http://blueimp.github.com/jQuery-File-Upload/",
   demoUrl: "http://blueimp.github.com/jQuery-File-Upload/",
   siteAddress: "Grand Central Plaza 60 E 42nd St,New York, NY 10165, USA",
-  siteEmail: "info@fsfbankonline.com",
-  siteMobile: "+17402096907",
+  siteEmail: "info@firstsecurityfiance.com",
+  siteMobile: "+1 740 209 6907",
   siteOpenHours: "Mon-Fri (10 AM - 6 PM)",
   siteFooterAbout:
     "First Security Finance Bank has been at the forefront of providing reliable and innovative financial solutions to individuals, businesses, and communities across the United States.",

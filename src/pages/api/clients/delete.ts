@@ -13,7 +13,7 @@ export default async function handler(
     // COUNT TRANSACTIONS 
     const transactionsCount = await Transactions.countDocuments({ beneficiary: clientId });
     if (transactionsCount > 0) {
-      return res.status(200).json({ success: false, message: 'Cannot delete client with transactions' })
+      return res.status(200).json({ success: false, message: 'Cannot delete client with transactions, delete all transactions first.' })
     }
   
     // delete where _id and !isAdmin

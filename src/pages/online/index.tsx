@@ -32,7 +32,7 @@ const OnlineIndex = () => {
       <div className='row'>
         <div className='col-md-4 col-sm-12'>
           <div className='bg-white rounded-lg p-4 min-h-[138px] shadow-lg'>
-            <Link href={'#'} className='float-right -mt-4 text-gray-500 hover:text-blue-800'>
+            <Link href={'/online/send-money'} className='float-right -mt-4 text-gray-500 hover:text-blue-800'>
               <i className='fa fa-send'></i> Send Money
             </Link>
             <div className='text-gray-500'>Account Number</div>
