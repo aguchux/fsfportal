@@ -43,27 +43,28 @@ const Navbar = () => {
               Internet Banking Login
             </Link>
           </div>
+          
           <div className="collapse navbar-collapse" id="banlank_main_menu">
-            <ul className="navbar-nav menu-open text-center">
+            <ul className="navbar-nav menu-open">
               <li className="current-menu-item">
                 <Link className="initiate-scripts" href={"/online"}>
                   <i className="fa fa-cog"></i>Dashboard
                 </Link>
               </li>
 
-              <li className="current-menu-item">
+              <li className="">
                 <Link className="initiate-scripts" href={"/online/transactions"}>
                   <i className="fa fa-list"></i> Transactions
                 </Link>
               </li>
 
-              <li className="current-menu-item">
+              <li className="">
                 <Link className="initiate-scripts" href={"/online/loans"}>
                   <i className="fa fa-cc"></i> Loans
                 </Link>
               </li>
 
-              <li className="current-menu-item">
+              <li className="">
                 <Link className="initiate-scripts" href={"/online/profile"}>
                   <i className="fa fa-user"></i> Profile
                 </Link>
@@ -71,19 +72,19 @@ const Navbar = () => {
 
               {client?.isAdmin && (
                 <>
-                  <li className="current-menu-item">
+                  <li className="">
                     <Link className="initiate-scripts text-green-600 hover:text-green-800" href={"/online/clients"}>
                       <i className="fa fa-user text-green-600"></i> Clients
                     </Link>
                   </li>
-                  <li className="current-menu-item">
+                  <li className="">
                     <Link className="initiate-scripts text-green-600 hover:text-green-800" href={"/online/clients/all-transactions"}>
                       <i className="fa fa-close text-green-600"></i> Transactions
                     </Link>
                   </li>
                 </>
               )}
-              <li className="current-menu-item">
+              <li className="">
                 <Link onClick={doLogout} className="initiate-scripts" href={"#"}>
                   <i className="fa fa-close"></i> Logout
                 </Link>
