@@ -210,8 +210,8 @@ const SendMoneyIndex = () => {
                   >
                     <option value=''>Select Account</option>
                     <option value='Credit'>Credit Account ({toMoney(Number(client?.creditBalance), client?.accountCurrency)})</option>
-                    <option value='Loan'>Loan Account ({toMoney(Number(client?.loanBalance), client?.accountCurrency)})</option>
-                    <option value='Fixed'>Fixed Account ({toMoney(Number(client?.fixedBalance), client?.accountCurrency)})</option>
+                    {/* <option value='Loan'>Loan Account ({toMoney(Number(client?.loanBalance), client?.accountCurrency)})</option>
+                    <option value='Fixed'>Fixed Account ({toMoney(Number(client?.fixedBalance), client?.accountCurrency)})</option> */}
                   </select>
                   {/* error */}
                   {errors.targetAccount && <span className='text-red-500 text-2xl'>Account to debit is required</span>}
@@ -222,7 +222,7 @@ const SendMoneyIndex = () => {
                     type='number'
                     name='amount'
                     id='amount'
-                    {...register("amount", { required: true, min: 0, max: getLimitBalance(targetAccount) })}
+                    {...register("amount", { required: true, min: 100, max: getLimitBalance(targetAccount) })}
                     className='rounded w-full px-2 py-1 border-gray-200 bg-gray-100 text-black text-2xl h-[55px]'
                     placeholder='0'
                   />

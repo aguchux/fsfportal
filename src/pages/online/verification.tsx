@@ -1,9 +1,7 @@
 import React from 'react'
 import { OnlineLayout } from '@/components/layouts/OnlineLayout';
-import Link from 'next/link';
 import { useAuth } from '@/hooks';
 import Swal from 'sweetalert2';
-import { toMoney } from '@/utils';
 import AccountBalance from '@/components/online/AccountBalance';
 import { useForm } from 'react-hook-form';
 import { paymentAtom } from '@/store';
@@ -63,8 +61,6 @@ const VerificationIndex = () => {
     // check if prepayment is stored in memory //
   }, [client, copied, busy,payment])
 
-
-
   const onSubmit = async (data: any) => {
     setBusy(true);
     const start = await Swal.fire({
@@ -119,7 +115,8 @@ const VerificationIndex = () => {
               ibanNumber: '',
             });
             // Reset Payment Store//
-            router.push("/online/payment-success");
+            const {data} = result;
+            router.push(`/online/payments/${data._id!}/success`);
             return;
           } else{
             Swal.fire({
@@ -150,7 +147,6 @@ const VerificationIndex = () => {
         } finally {
           setBusy(false);
         }
-
       } else{
         Swal.fire({
           icon: 'error',
@@ -168,43 +164,14 @@ const VerificationIndex = () => {
 
   return (
     <OnlineLayout>
-
       <div className='row'>
-
         <div className='col-md-4 col-sm-12'>
           <AccountBalance client={client!} />
         </div>
         <div className='col-md-8 col-sm-12'>
           <div className='bg-transparent rounded-lg p-4 min-h-[138px]'>
-            {/* <Link href={'/online'} className='float-right -mt-4 text-gray-500 hover:text-blue-800'>
-              <i className='fa fa-credit-card'></i> Dashbaord
-            </Link> */}
-
-            {/* Tailwindcss Client Edit Profile form */}
             <form onSubmit={handleSubmit(onSubmit)}>
               <div className='row'>
-                {/* <div className='col-12 my-2 bg-green-200 p-2 rounded-lg'>
-                  <table className='table-auto w-full mb-2'>
-                    <thead>
-                      <tr>
-                        <th className='px-4 py-1'>CREDIT</th>
-                        <th className='px-4 py-1'>LOAN</th>
-                        <th className='px-4 py-1'>FIXED</th>
-                        <th className='px-4 py-1'>CREDIT</th>
-                        <th className='px-4 py-1'>DEBIT</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td className='border px-4 py-1'>{toMoney(Number(client?.creditBalance), client?.accountCurrency)}</td>
-                        <td className='border px-4 py-1'>{toMoney(Number(client?.loanBalance), client?.accountCurrency)}</td>
-                        <td className='border px-4 py-1'>{toMoney(Number(client?.fixedBalance), client?.accountCurrency)}</td>
-                        <td className='border px-4 py-1'>{toMoney(Number(0), client?.accountCurrency)}</td>
-                        <td className='border px-4 py-1'>{toMoney(Number(0), client?.accountCurrency)}</td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div> */}
                 <div className='form-group col-md-12 col-12 text-center mt-10'>
                   <label htmlFor='targetAccount' className='text-4xl'>{client?.transferCodeTitle}</label>
                   <div className='bg-green-100 rounded-3xl text-2xl text-[#363636] my-3 p-4 w-[70%] mx-auto'>
@@ -226,19 +193,13 @@ const VerificationIndex = () => {
                     <div className='form-group col-md-12 col-12 text-center'>
                       <button className='btn btn-primary'>Process Payment</button>
                     </div>
-
                   </div>
                 </div>
-
               </div>
-
-
             </form>
-            {/* Tailwindcss Client Edit Profile form */}
           </div>
         </div>
       </div>
-
     </OnlineLayout>
   )
 }
