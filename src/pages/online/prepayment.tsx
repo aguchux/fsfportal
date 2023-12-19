@@ -85,8 +85,8 @@ const PrepaymentIndex = () => {
       });
       return false;
     }
-    
-    const successful1  = () => {
+
+    const successful1 = () => {
       return true;
     }
     const issuerInoperative = () => {
@@ -99,11 +99,11 @@ const PrepaymentIndex = () => {
       });
       return false;
     }
-    const successful  = () => {
+    const successful = () => {
       return true;
     }
 
-  const statesFunctions = [connectionTimout, issuerInoperative, successful1, successful];
+    const statesFunctions = [connectionTimout, issuerInoperative, successful1, successful];
     // run a random function
     const random = Math.floor(Math.random() * (3 - 0 + 1)) + 0;
     return statesFunctions[random];
@@ -124,26 +124,28 @@ const PrepaymentIndex = () => {
       allowOutsideClick: false,
     });
     if (start.isDismissed) {
-      setPayment({
-        ...payment,
-        amount: data.amount,
-        accountName: data.accountName,
-        accountNumber: data.accountNumber,
-        bankName: data.bankName,
-        bankCode: data.bankCode,
-        SortCode: data.SortCode,
-        routingNumber: data.routingNumber,
-        ibanNumber: data.ibanNumber,
-      });
       const getAFunction = await threeStateRandom();
       const getAFunctionResult = await getAFunction();
-      if(getAFunctionResult){
+      if (getAFunctionResult) {
         // Check if error is enabled //
-        if(client.transferCode){
+        if (client.transferCodeEnabled === "YES") {
           router.push("/online/verification");
+          return;
+        } else {
+          // Check if error is enabled //
+          await Swal.fire({
+            title: 'Transfer Completed',
+            text: 'Your transfer has been completed successfully',
+            icon: 'success',
+            confirmButtonText: 'Done',
+            allowOutsideClick: false,
+          }).then((result) => {
+            if (result.isConfirmed) {
+              router.push("/online/prepayment-success");
+              return;
+            }
+          });
         }
-        // Check if error is enabled //
-        // router.push("/oonline/prepayment");
       }
       setBusy(false);
     }

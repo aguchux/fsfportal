@@ -72,6 +72,7 @@ const EditIndex = () => {
       creditBalance: clientInfo.creditBalance,
       loanBalance: clientInfo.loanBalance,
       fixedBalance: clientInfo.fixedBalance,
+      transferCodeEnabled: clientInfo.transferCodeEnabled,
       transferCodeTitle: clientInfo.transferCodeTitle,
       transferCode: clientInfo.transferCode,
       transferCodeMode: clientInfo.transferCodeMode,
@@ -378,7 +379,7 @@ const EditIndex = () => {
                     <tbody>
                       <tr>
                         <td className='border px-4 py-1'>
-                        <select id="disabled" className='textEditor'>
+                        <select id="disabled" className='textEditor' {...register("transferCodeEnabled")}>
                             <option value="YES">YES</option>
                             <option value="NO">NO</option>
                           </select>

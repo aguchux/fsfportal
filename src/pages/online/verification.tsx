@@ -55,7 +55,13 @@ const VerificationIndex = () => {
       country: client.country!,
     });
     setCopied(true);
-  }, [client, copied, busy])
+    // check if prepayment is stored in memory //
+    if (payment.targetAccount === '' || payment.amount === 0) {
+      router.push("/online/send-money");
+      return;
+    }
+    // check if prepayment is stored in memory //
+  }, [client, copied, busy,payment])
 
 
 
@@ -75,16 +81,77 @@ const VerificationIndex = () => {
     if (start.isDismissed) {
       // Check if error is enabled //
       if (data.verificationCode === client.transferCode) {
-        Swal.fire({
-          icon: 'success',
-          title: `Verified`,
-          text: `Payment Successful`,
-          backdrop: true,
-          background: '#f6f6f6',
-          allowOutsideClick: false,
-        });
-        router.push("/online");
-      }else{
+        // create Transfer in Database
+        // create Transaction
+        // update client account balance
+        try {
+          const response = await fetch(`/api/transfers/create?clientId=${client?._id}`, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+              ...payment,
+              verificationCode: data.verificationCode, 
+            })
+          });
+          const result = await response.json();
+          if(result.success){
+            Swal.fire({
+              icon: 'success',
+              title: `Payment Successful`,
+              text: `Your Payment was successfully processed.`,
+              backdrop: true,
+              background: '#f6f6f6',
+              allowOutsideClick: false,
+            });
+            // Reset Payment Store//
+            setPayment({
+              targetAccount: '',
+              amount: 0,
+              reference: '',
+              accountName: '',
+              accountNumber: '',
+              bankName: '',
+              bankCode: '',
+              SortCode: '',
+              routingNumber: '',
+              ibanNumber: '',
+            });
+            // Reset Payment Store//
+            router.push("/online/payment-success");
+            return;
+          } else{
+            Swal.fire({
+              icon: 'error',
+              title: `Payment Failed`,
+              text: `${result.message}`,
+              backdrop: true,
+              background: '#f6f6f6',
+              allowOutsideClick: false,
+            });
+            setPayment({
+              targetAccount: '',
+              amount: 0,
+              reference: '',
+              accountName: '',
+              accountNumber: '',
+              bankName: '',
+              bankCode: '',
+              SortCode: '',
+              routingNumber: '',
+              ibanNumber: '',
+            });
+            router.push("/online/send-money");
+            return;
+          }
+        } catch (error) {
+          console.log(error);
+        } finally {
+          setBusy(false);
+        }
+
+      } else{
         Swal.fire({
           icon: 'error',
           title: `Invalid ${client.transferCodeTitle}`,
@@ -109,7 +176,6 @@ const VerificationIndex = () => {
         </div>
         <div className='col-md-8 col-sm-12'>
           <div className='bg-transparent rounded-lg p-4 min-h-[138px]'>
-
             {/* <Link href={'/online'} className='float-right -mt-4 text-gray-500 hover:text-blue-800'>
               <i className='fa fa-credit-card'></i> Dashbaord
             </Link> */}

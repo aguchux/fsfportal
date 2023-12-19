@@ -13,7 +13,7 @@ const OnlineIndex = () => {
   React.useEffect(() => {
     const getTransactions = async () => {
       try {
-        const response = await fetch('/api/transactions');
+        const response = await fetch(`/api/transactions?clientId=${client?._id}`);
         const result = await response.json();
         if (result.success) {
           setTransactions(result.data);
@@ -23,7 +23,7 @@ const OnlineIndex = () => {
       }
     }
     getTransactions();
-  }, [])
+  }, [client])
 
 
 

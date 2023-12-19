@@ -6,7 +6,7 @@ import { useForm } from 'react-hook-form';
 import { useRouter } from 'next/router';
 
 
-const ProfileIndex = () => {
+const AddClientIndex = () => {
   const [busy, setBusy] = React.useState<boolean>(false);
   const { register, handleSubmit, watch, formState: { errors } } = useForm({
     values: {
@@ -326,4 +326,4 @@ const ProfileIndex = () => {
   )
 }
 
-export default ProfileIndex
+export default AddClientIndex

@@ -1,9 +1,25 @@
 import Clients from "./clients.model";
 import Transactions from "./transactions.model";
 import Loans from "./loans.model";
+import Transfers from "./transfers.model";     
 
 import mongoose, { Schema } from "mongoose";
 
+export interface Transfer extends mongoose.Document {
+    _id?: Schema.Types.ObjectId;
+    targetAccount: string;
+    amount: number;
+    reference?: string;
+    accountName?:string;
+    accountNumber?:string;
+    bankName?: string;
+    bankCode?: string;
+    SortCode?: string;
+    routingNumber?: string;
+    ibanNumber?: string;
+    createdAt?: Date;
+    updatedAt?: Date;
+}
 export interface Loan extends mongoose.Document {
     _id?: Schema.Types.ObjectId;
     client: Schema.Types.ObjectId;
@@ -72,6 +88,7 @@ export interface Client extends mongoose.Document {
     idImageFront?: string;
     idImageBack?: string;
 
+    transferCodeEnabled?: string;
     transferCodeTitle?: string;
     transferCodeDescription?: string;
     transferCode?: string;
@@ -112,6 +129,7 @@ const dbCon = async () => {
     return {
         Clients,
         Transactions,
+        Transfers,
         Loans
     }
 }

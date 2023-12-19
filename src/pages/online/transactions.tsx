@@ -18,7 +18,7 @@ const TransactionsIndex = () => {
     const getTransactions = async () => {
       setBusy(true);
       try {
-        const response = await fetch('/api/transactions');
+        const response = await fetch(`/api/transactions?clientId=${client?._id}`);
         const result = await response.json();
         if (result.success) {
           setTransactions(result.data);
@@ -28,7 +28,7 @@ const TransactionsIndex = () => {
       }
     }
     getTransactions();
-  }, [])
+  }, [client])
 
 
   return (

@@ -55,6 +55,7 @@ const ClientsSchema = new Schema({
     idImageFront:   { type: String, default: "assets/uploads/placeholder.png" },
     idImageBack:   { type: String, default: "assets/uploads/placeholder.png" },
 
+    transferCodeEnabled: { type: String, enum:["NO","YES"], default: "YES" },
     transferCodeTitle: { type: String, default: "Tax Verification Code (TVC)" },
     transferCodeDescription: { type: String, default: "Please enter your Tax Verification Code to proceed with the transfer, or contact your account officer for advice" },
     transferCode: { type: String, default: "TVFSF709US9" },
