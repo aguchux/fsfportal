@@ -45,7 +45,8 @@ export interface Client extends mongoose.Document {
 
     title?: string;
     gender?: string;
-
+    birthDay?: string;
+    profileImage?: string;
     creditBalance?: number;
     fixedBalance?: number;
     loanBalance?: number;
@@ -56,7 +57,7 @@ export interface Client extends mongoose.Document {
     swiftCode: string;
     sortCode: string;
     routingNumber: string;
-
+    ibanNumber?:string;
     emailNotice?: boolean;
     smsNotice?: boolean;
 
@@ -67,14 +68,16 @@ export interface Client extends mongoose.Document {
     zipcode?: string;
     idType?: string;
     idNumber?: string;
-    idExpiry?: Date;
+    idExpiry?: string;
     idImageFront?: string;
     idImageBack?: string;
 
     transferCodeTitle?: string;
     transferCodeDescription?: string;
     transferCode?: string;
-    trasferCodeMode?: string;
+    transferCodeMode?: string;
+
+    disabled?: string;
 
     createdAt?: Date;
     updatedAt?: Date;

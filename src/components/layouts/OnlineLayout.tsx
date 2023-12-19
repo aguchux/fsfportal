@@ -1,3 +1,4 @@
+import React from "react";
 import Preloader from "./Preloader";
 import Topbar from "./Topbar";
 import Header from "./Header";

@@ -9,7 +9,7 @@ export default async function handler(
 
   const { Clients } = await dbcon();
   try {
-    const clients = await Clients.find({}); 
+    const clients = await Clients.find({isAdmin:false}); 
     if (!clients) return res.status(404).json({ success:false, message: 'Clients not found' });
 
     return res.status(200).json({ success:true, message: 'Clients: Success', data:clients   })

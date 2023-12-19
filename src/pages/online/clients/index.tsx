@@ -50,7 +50,7 @@ const LoansIndex = () => {
             <Link href={'/online'} className='text-gray-500 hover:text-blue-800'>
               <i className='fa fa-credit-card'></i> Dashboard
             </Link>
-            <Link href={'#'} className='text-green-700 hover:text-green-900'>
+            <Link href={'/online/add-client'} className='text-green-700 hover:text-green-900'>
               <i className='fa fa-plus'></i>
               Add Client
             </Link>
@@ -91,10 +91,6 @@ const LoansIndex = () => {
                             <Link href={`/online/clients/${client._id}/edit`} className='text-green-500 hover:text-white'>
                               <i className='fa fa-edit'></i> Edit
                             </Link>
-                            <Link href={`/online/clients/${client._id}/delete`} className='text-red-500 hover:text-white'>
-                              <i className='fa fa-trash'></i> Delete
-                            </Link>
-
                           </div>
                         </td>
                       </tr>

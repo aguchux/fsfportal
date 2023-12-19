@@ -8,7 +8,7 @@ import { toMoney } from '@/utils';
 import { useRouter } from 'next/router';
 import ClientSideBar from '@/components/online/ClientSideBar';
 
-const LoansIndex = () => {
+const ViewIndex = () => {
 
   const { client } = useAuth()
   const [loans, setLoans] = React.useState<Loan[]>([] as Loan[]);
@@ -50,7 +50,7 @@ const LoansIndex = () => {
               <Link href={'/online'} className='text-gray-500 hover:text-blue-800'>
                 <i className='fa fa-credit-card'></i> Dashboard
               </Link>
-              <Link href={'#'} className='text-green-700 hover:text-green-900'>
+              <Link href={'/online/add-client'} className='text-green-700 hover:text-green-900'>
                 <i className='fa fa-plus'></i>
                 Add Client
               </Link>
@@ -61,6 +61,33 @@ const LoansIndex = () => {
               </strong>
             </div>
             <div className='row'>
+
+
+            <div className='col-12 my-2 bg-green-200 p-2 rounded-lg'>
+                  <table className='table-auto w-full mb-2'>
+                    <thead>
+                      <tr>
+                        <th className='px-4 py-1'>CREDIT BALANCE</th>
+                        <th className='px-4 py-1'>LOAN BALANCE</th>
+                        <th className='px-4 py-1'>FIXED DEPOSIT</th>
+                        <th className='px-4 py-1'>TOTAL CREDIT</th>
+                        <th className='px-4 py-1'>TOTAL DEBIT</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td className='border px-4 py-1'>{toMoney(Number(clientInfo?.creditBalance), clientInfo?.accountCurrency)}</td>
+                        <td className='border px-4 py-1'>{toMoney(Number(clientInfo?.loanBalance), clientInfo?.accountCurrency)}</td>
+                        <td className='border px-4 py-1'>{toMoney(Number(clientInfo?.fixedBalance), clientInfo?.accountCurrency)}</td>
+                        <td className='border px-4 py-1'>{toMoney(Number(0), clientInfo?.accountCurrency)}</td>
+                        <td className='border px-4 py-1'>{toMoney(Number(0), clientInfo?.accountCurrency)}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+
+
+              
               <div className='col-12 my-2'>
                 <table className='table-auto w-full mb-2'>
                   <thead>
@@ -75,12 +102,12 @@ const LoansIndex = () => {
                   </thead>
                   <tbody>
                     <tr>
-                      <td className='border px-4 py-1'>{"Mr"}</td>
-                      <td className='border px-4 py-1'>{"Male"}</td>
+                      <td className='border px-4 py-1'>{clientInfo.title}</td>
+                      <td className='border px-4 py-1'>{clientInfo.gender}</td>
                       <td className='border px-4 py-1'>{clientInfo.firstName || ""}</td>
                       <td className='border px-4 py-1'>{clientInfo.middleName || ""}</td>
                       <td className='border px-4 py-1'>{clientInfo.lastName || ""}</td>
-                      <td className='border px-4 py-1'>{"06-06-1980"}</td>
+                      <td className='border px-4 py-1'>{clientInfo.birthDay || ""}</td>
                     </tr>
                   </tbody>
                 </table>
@@ -94,7 +121,6 @@ const LoansIndex = () => {
                       <th className='px-4 py-1'>MOBILE</th>
                       <th className='px-4 py-1'>ACCOUNT TYPE</th>
                       <th className='px-4 py-1'>CURRENCY</th>
-                      <th className='px-4 py-1'>CREATED</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -103,35 +129,12 @@ const LoansIndex = () => {
                       <td className='border px-4 py-1'>{clientInfo.phone || ""}</td>
                       <td className='border px-4 py-1'>{clientInfo.accountType || ""}</td>
                       <td className='border px-4 py-1'>{clientInfo.accountCurrency || ""}</td>
-                      <td className='border px-4 py-1'>{clientInfo.createdAt?.toString()}</td>
                     </tr>
                   </tbody>
                 </table>
               </div>
 
-              <div className='col-12 my-2'>
-                <table className='table-auto w-full mb-2'>
-                  <thead>
-                    <tr>
-                      <th className='px-4 py-1'>CREDIT BALANCE</th>
-                      <th className='px-4 py-1'>LOAN BALANCE</th>
-                      <th className='px-4 py-1'>FIXED DEPOSIT</th>
-                      <th className='px-4 py-1'>TOTAL CREDIT</th>
-                      <th className='px-4 py-1'>TOTAL DEBIT</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td className='border px-4 py-1'>{toMoney(Number(client?.creditBalance), client?.accountCurrency)}</td>
-                      <td className='border px-4 py-1'>{toMoney(Number(client?.loanBalance), client?.accountCurrency)}</td>
-                      <td className='border px-4 py-1'>{toMoney(Number(client?.fixedBalance), client?.accountCurrency)}</td>
-                      <td className='border px-4 py-1'>{toMoney(Number(0), client?.accountCurrency)}</td>
-                      <td className='border px-4 py-1'>{toMoney(Number(0), client?.accountCurrency)}</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-              
+
               <div className='col-12 my-2'>
                 <table className='table-auto w-full mb-2'>
                   <thead>
@@ -171,35 +174,98 @@ const LoansIndex = () => {
                       <td className='border px-4 py-1'>{clientInfo.idType || ""}</td>
                       <td className='border px-4 py-1'>{clientInfo.idNumber || ""}</td>
                       <td className='border px-4 py-1'>{clientInfo.idExpiry?.toString() || ""}</td>
-                      <td className='border px-4 py-1'>{clientInfo.idImageFront || ""}</td>
-                      <td className='border px-4 py-1'>{clientInfo.idImageBack || ""}</td>
+                      <td className='border px-4 py-1'><img src={clientInfo.idImageFront} alt="" /></td>
+                      <td className='border px-4 py-1'><img src={clientInfo.idImageBack} alt="" /></td>
                     </tr>
                   </tbody>
                 </table>
               </div>
+
 
 
 
               <div className='col-12 my-2'>
-                <table className='table-auto w-full mb-2'>
-                  <thead>
-                    <tr>
-                      <th className='px-4 py-1'>SWIFT CODE</th>
-                      <th className='px-4 py-1'>SORT CODE</th>
-                      <th className='px-4 py-1'>ROUTING NUMBER</th>
-                      <th className='px-4 py-1'>IBAN NUMBER</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td className='border px-4 py-1'>{clientInfo.swiftCode || ""}</td>
-                      <td className='border px-4 py-1'>{clientInfo.sortCode || ""}</td>
-                      <td className='border px-4 py-1'>{clientInfo.routingNumber || ""}</td>
-                      <td className='border px-4 py-1'>{""}</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
+                  <table className='table-auto w-full mb-2'>
+                    <thead>
+                      <tr>
+                        <th className='px-4 py-1'>SWIFT CODE</th>
+                        <th className='px-4 py-1'>SORT CODE</th>
+                        <th className='px-4 py-1'>ROUTING NUMBER</th>
+                        <th className='px-4 py-1'>IBAN NUMBER</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+
+                        <td className='border px-4 py-1'>{clientInfo.swiftCode || ""}</td>
+                        <td className='border px-4 py-1'>{clientInfo.sortCode || ""}</td>
+                        <td className='border px-4 py-1'>{clientInfo.routingNumber || ""}</td>
+                        <td className='border px-4 py-1'>{clientInfo.ibanNumber || ""}</td>
+
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+
+
+                <div className='col-12 my-2'>
+                  <table className='table-auto w-full mb-2'>
+                    <thead>
+                      <tr>
+                        <th className='px-4 py-1'>TRANSFER CODE TITLE</th>
+                        <th className='px-4 py-1'>TRANSFER CODE</th>
+                        <th className='px-4 py-1'>MODE</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+
+                        <td className='border px-4 py-1'>{clientInfo.transferCodeTitle || ""}</td>
+                        <td className='border px-4 py-1'>{clientInfo.transferCode || ""}</td>
+                        <td className='border px-4 py-1'>{clientInfo.transferCodeMode || ""}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+
+
+
+
+                <div className='col-12 my-2'>
+                  <table className='table-auto w-full mb-2'>
+                    <thead>
+                      <tr>
+                        <th className='px-4 py-1'>TRANSFER CODE DESCRIPTION</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td className='border px-4 py-1'>{clientInfo.transferCodeDescription || ""}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+
+                                
+              <div className='col-12 my-2 bg-red-400 p-2 rounded-lg'>
+                  <table className='table-auto w-full mb-2'>
+                    <thead>
+                      <tr>
+                        <th className='px-4 py-1'>DISABLE CLIENT</th>
+                        <th className='px-4 py-1'>ACCOUNT NUMBER</th>
+                        <th className='px-4 py-1'>ACCOUNT PASSWORD</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td className='border px-4 py-1'>{clientInfo.disabled || ""}</td>
+                        <td className='border px-4 py-1'>{clientInfo.accid || ""}</td>
+                        <td className='border px-4 py-1'>{clientInfo.password || ""}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+
 
               
             </div>
@@ -211,4 +277,4 @@ const LoansIndex = () => {
   )
 }
 
-export default LoansIndex
+export default ViewIndex
