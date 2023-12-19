@@ -9,7 +9,6 @@ import PrivacyPolicy from "@/components/pages/PrivacyPolicy";
 import SecurityTrust from "@/components/pages/SecurityTrust";
 import TermsCondition from "@/components/pages/TermsCondition";
 
-
 export const IMAGES = {
   favicon: require("@assets/img/favicon.png"),
   logo: require("@assets/img/logo.png"),

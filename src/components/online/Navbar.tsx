@@ -13,10 +13,7 @@ const Navbar = () => {
     e.preventDefault();
     logout("/auth");
   }
-  // filter menu where show==true
-  const allMenus = useMemo(() => {
-    return menus.filter((menu) => menu.show);
-  }, []);
+
   return (
     <div className="navbar-area bg-one">
 
@@ -43,7 +40,7 @@ const Navbar = () => {
               Internet Banking Login
             </Link>
           </div>
-          
+
           <div className="collapse navbar-collapse" id="banlank_main_menu">
             <ul className="navbar-nav menu-open">
               <li className="current-menu-item">
