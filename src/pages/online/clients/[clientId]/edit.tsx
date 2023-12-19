@@ -369,7 +369,7 @@ const EditIndex = () => {
                   <table className='table-auto w-full mb-2'>
                     <thead>
                       <tr>
-                        <th className='px-4 py-1'>USE CODE</th>
+                        <th className='px-4 py-1'>ENABLE CODE</th>
                         <th className='px-4 py-1'>TRANSFER CODE TITLE</th>
                         <th className='px-4 py-1'>TRANSFER CODE</th>
                         <th className='px-4 py-1'>MODE</th>
