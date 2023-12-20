@@ -11,7 +11,8 @@ export default async function handler(
     fundingType,
     fundingWallet,
     amount,
-    reference
+    reference,
+    transactionDate
   } = req.body;
 
   const { Clients, Transactions } = await dbcon();
@@ -73,7 +74,8 @@ export default async function handler(
       transactionStatus: 'Completed',
       amount,
       reference,
-      beneficiary: client._id
+      beneficiary: client._id,
+      transactionDate
     };
     const trx =  await Transactions.create(transaction);
     console.log(trx)

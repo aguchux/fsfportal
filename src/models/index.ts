@@ -37,11 +37,10 @@ export interface Transaction extends mongoose.Document {
     _id?: Schema.Types.ObjectId;
     transactionType: string;
     transactionStatus: string;
-
     amount: number;
     reference?: string;
     details?: string;
-
+    transactionDate?: string;
     beneficiary?: Schema.Types.ObjectId;
     createdAt?: Date;
     updatedAt?: Date;

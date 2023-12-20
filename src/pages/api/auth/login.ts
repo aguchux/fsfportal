@@ -28,7 +28,7 @@ export default async function handler(
     }
 
     const token = signToken(payload as any);
-    setCookie('token', token, { req, res, maxAge: 3600, path: '/', secure: process.env.NODE_ENV !== 'development', sameSite: 'strict' });
+    setCookie('token', token, { req, res, maxAge: 600, path: '/', secure: process.env.NODE_ENV !== 'development', sameSite: 'strict' });
     
     return res.status(200).json({ success:true, message: 'Login: Success', data:token   })
   } catch (error) {

@@ -44,6 +44,7 @@ const FundingIndex = () => {
       fundingWallet: "Credit",
       amount: 0,
       reference: "",
+      transactionDate: ""
     }
   });
 
@@ -65,8 +66,8 @@ const FundingIndex = () => {
           icon: 'success',
           confirmButtonText: 'Ok'
         });
-        if(resp.isConfirmed){
-          router.push(`/online/clients/${clientId}/view`);          
+        if (resp.isConfirmed) {
+          router.push(`/online/clients/${clientId}/view`);
         }
       } else {
         Swal.fire({
@@ -99,7 +100,7 @@ const FundingIndex = () => {
                 </Link>
               </span>
               <div className='text-gray-500 text-3xl border-bottom my-3'>Client: {" "}
-                <strong>{clientInfo.firstName} {clientInfo.middleName} {clientInfo.lastName}</strong> ({clientInfo.accid})             
+                <strong>{clientInfo.firstName} {clientInfo.middleName} {clientInfo.lastName}</strong> ({clientInfo.accid})
               </div>
               <div className='row'>
 
@@ -108,14 +109,18 @@ const FundingIndex = () => {
                   <table className='table-auto w-full mb-2'>
                     <thead>
                       <tr>
+                        <th className='px-4 py-1'>DATE</th>
                         <th className='px-4 py-1'>CREDIT/DEBIT</th>
                         <th className='px-4 py-1'>TARGET WALLET</th>
-                        <th className='px-4 py-1'>AMOUNT: <span className='text-green-700'>{ toMoney(theAmount,clientInfo.accountCurrency)}</span></th>
+                        <th className='px-4 py-1'>AMOUNT: <span className='text-green-700'>{toMoney(theAmount, clientInfo.accountCurrency)}</span></th>
                         <th className='px-4 py-1'>REFERENCE</th>
                       </tr>
                     </thead>
                     <tbody>
                       <tr>
+                        <td className='border px-4 py-1 form-group'>
+                          <input type='date' {...register("transactionDate")} className='form-control textEditor' />
+                        </td>
                         <td className='border px-4 py-1 form-group'>
                           <select {...register("fundingType")} className='form-select textEditor form-control'>
                             <option value="Credit">Credit</option>

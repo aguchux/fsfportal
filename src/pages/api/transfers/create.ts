@@ -60,7 +60,8 @@ export default async function handler(
       transactionStatus: 'Completed',
       amount,
       reference,
-      beneficiary: clientId
+      beneficiary: clientId,
+      transactionDate: new Date().toISOString()
     });
 
     return res.status(200).json({ success: true, message: 'Transfer: Success', data: sendMoney })

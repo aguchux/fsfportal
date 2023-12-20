@@ -8,6 +8,7 @@ const TransactionsSchema = new Schema({
     reference: { type: String },
     details: { type: String },
     beneficiary: { type: Schema.Types.ObjectId, ref: 'Clients' },
+    transactionDate: { type: String, default: "" },
     createdAt: { type: Date },
     updatedAt: { type: Date }
 }, {
