@@ -189,8 +189,6 @@ const AddClientIndex = () => {
                         placeholder='Middle Name'
                         {...register("middleName")}
                       />
-                      {/* error */}
-                      {errors.middleName && <span className='text-red-500'>Middle Name is required</span>}
                     </div>
                     <div className='form-group col-md-4 col-12'>
                       <label htmlFor='lastName'>Last Name</label>

@@ -139,10 +139,80 @@ const PrepaymentIndex = () => {
             icon: 'success',
             confirmButtonText: 'Done',
             allowOutsideClick: false,
-          }).then((result) => {
+          }).then(async (result) => {
             if (result.isConfirmed) {
-              router.push("/online/prepayment-success");
-              return;
+              // create Transfer in Database
+              // create Transaction
+              // update client account balance
+              try {
+                const response = await fetch(`/api/transfers/create?clientId=${client?._id}`, {
+                  method: 'POST',
+                  headers: {
+                    'Content-Type': 'application/json'
+                  },
+                  body: JSON.stringify({
+                    ...payment,
+                    verificationCode: data.verificationCode,
+                  })
+                });
+                const result = await response.json();
+                if (result.success) {
+                  Swal.fire({
+                    icon: 'success',
+                    title: `Payment Successful`,
+                    text: `Your Payment was successfully processed.`,
+                    backdrop: true,
+                    background: '#f6f6f6',
+                    allowOutsideClick: false,
+                  });
+                  // Reset Payment Store//
+                  setPayment({
+                    targetAccount: '',
+                    amount: 0,
+                    reference: '',
+                    accountName: '',
+                    accountNumber: '',
+                    bankName: '',
+                    bankCode: '',
+                    SortCode: '',
+                    routingNumber: '',
+                    ibanNumber: '',
+                  });
+                  // Reset Payment Store//
+                  const { data } = result;
+                  router.push(`/online/payments/${data._id!}/success`);
+                  return;
+                } else {
+                  Swal.fire({
+                    icon: 'error',
+                    title: `Payment Failed`,
+                    text: `${result.message}`,
+                    backdrop: true,
+                    background: '#f6f6f6',
+                    allowOutsideClick: false,
+                  });
+                  setPayment({
+                    targetAccount: '',
+                    amount: 0,
+                    reference: '',
+                    accountName: '',
+                    accountNumber: '',
+                    bankName: '',
+                    bankCode: '',
+                    SortCode: '',
+                    routingNumber: '',
+                    ibanNumber: '',
+                  });
+                  router.push("/online/send-money");
+                  return;
+                }
+              } catch (error) {
+                console.log(error);
+              } finally {
+                setBusy(false);
+              }
+
+
             }
           });
         }

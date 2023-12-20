@@ -300,7 +300,7 @@ const SendMoneyIndex = () => {
                 type='text'
                 name='bankCode'
                 id='bankCode'
-                {...register("bankCode", { required: true })}
+                {...register("bankCode")}
                 className='rounded w-full px-2 py-1 border-gray-200 bg-gray-100 text-black text-2xl h-[55px]'
                 placeholder='Bank Code'
               />
@@ -314,7 +314,7 @@ const SendMoneyIndex = () => {
                 type='text'
                 name='SortCode'
                 id='SortCode'
-                {...register("SortCode", { required: true })}
+                {...register("SortCode")}
                 className='rounded w-full px-2 py-1 border-gray-200 bg-gray-100 text-black text-2xl h-[55px]'
                 placeholder='Sort Code'
               />
