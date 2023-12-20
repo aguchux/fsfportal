@@ -61,7 +61,7 @@ const ClientSideBar = (props: Props) => {
                 <div className='text-gray-500'>Account Password</div>
                 <div className='text-4xl font-bold text-gray-400'>{client?.password}</div>
                 <hr />
-                <div className='text-gray-500'>Credi Balance</div>
+                <div className='text-gray-500'>Credit Balance</div>
                 <div className='text-4xl font-bold text-green-500'>{toMoney(Number(client?.creditBalance), client?.accountCurrency)}</div>
                 <hr />
                 <div className="">

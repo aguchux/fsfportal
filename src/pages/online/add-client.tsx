@@ -187,7 +187,7 @@ const AddClientIndex = () => {
                         id='middleName'
                         className='form-control'
                         placeholder='Middle Name'
-                        {...register("middleName", { required: true })}
+                        {...register("middleName")}
                       />
                       {/* error */}
                       {errors.middleName && <span className='text-red-500'>Middle Name is required</span>}
