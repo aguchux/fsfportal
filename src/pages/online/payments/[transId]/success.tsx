@@ -95,7 +95,7 @@ const PaymentSuccessIndex = () => {
               </div>
               <h4 className='mt-2'>Sent To</h4>
               <div className='text-lg font-bold my-0 rounded-3xl w-[350px] px-0 mx-auto bg-gray-100 text-blue-300 text-center'>
-                {thisClient.firstName} {thisClient.lastName}
+                {transfer.accountName}
               </div>
             </div>
             <p className='text-gray-500 text-lg absolute bottom-0 w-full right-0 text-center mx-auto'>

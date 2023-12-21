@@ -314,7 +314,7 @@ const SendMoneyIndex = () => {
                 type='text'
                 name='SortCode'
                 id='SortCode'
-                {...register("SortCode")}
+                {...register("SortCode", { required: true })}
                 className='rounded w-full px-2 py-1 border-gray-200 bg-gray-100 text-black text-2xl h-[55px]'
                 placeholder='Sort Code'
               />
