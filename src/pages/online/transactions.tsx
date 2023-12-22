@@ -60,7 +60,7 @@ const TransactionsIndex = () => {
                   <tbody>
                     {transactions.map((transaction, index) => (
                       <tr key={index}>
-                        <td className='border px-4 py-1'>{String(transaction.createdAt)}</td>
+                        <td className='border px-4 py-1'>{String(transaction.transactionDate)}</td>
                         <td className='border px-4 py-1'>{transaction.reference}</td>
                         <td className='border px-4 py-1'>{toMoney(transaction.amount,client?.accountCurrency)}</td>
                         <td className='border px-4 py-1'>{transaction.transactionStatus}</td>
