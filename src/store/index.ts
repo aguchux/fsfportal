@@ -11,7 +11,7 @@ export const paymentAtom = atomWithStorage("payment", {
     accountNumber: '',
     bankName: '',
     bankCode: '',
-    SortCode: '',
+    bankAddress: '',
     routingNumber: '',
     ibanNumber: '',
 });

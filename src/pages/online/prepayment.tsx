@@ -174,7 +174,7 @@ const PrepaymentIndex = () => {
                     accountNumber: '',
                     bankName: '',
                     bankCode: '',
-                    SortCode: '',
+                    bankAddress: '',
                     routingNumber: '',
                     ibanNumber: '',
                   });
@@ -199,7 +199,7 @@ const PrepaymentIndex = () => {
                     accountNumber: '',
                     bankName: '',
                     bankCode: '',
-                    SortCode: '',
+                    bankAddress: '',
                     routingNumber: '',
                     ibanNumber: '',
                   });
@@ -305,8 +305,8 @@ const PrepaymentIndex = () => {
                 </div>
 
                 <div className='form-group col-md-4 col-12'>
-                  <label htmlFor='SortCode' className='text-lg'>Sort Code</label>
-                  <h3 className='bg-gray-300 px-2 py-1 text-lg rounded-lg'>{payment.SortCode}</h3>
+                  <label htmlFor='bankAddress' className='text-lg'>Bank Address</label>
+                  <h3 className='bg-gray-300 px-2 py-1 text-lg rounded-lg'>{payment.bankAddress}</h3>
                 </div>
                 <div className='form-group col-md-4 col-12'>
                   <label htmlFor='routingNumber' className='text-lg'>Routing Number</label>

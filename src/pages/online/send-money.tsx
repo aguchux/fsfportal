@@ -37,7 +37,7 @@ const SendMoneyIndex = () => {
     accountNumber: string;
     bankName: string;
     bankCode: string;
-    SortCode: string;
+    bankAddress: string;
     routingNumber: string;
     ibanNumber: string;
   }>({
@@ -49,7 +49,7 @@ const SendMoneyIndex = () => {
       accountNumber: '',
       bankName: '',
       bankCode: '',
-      SortCode: '',
+      bankAddress: '',
       routingNumber: '',
       ibanNumber: '',
     }
@@ -145,7 +145,7 @@ const SendMoneyIndex = () => {
         accountNumber: data.accountNumber,
         bankName: data.bankName,
         bankCode: data.bankCode,
-        SortCode: data.SortCode,
+        bankAddress: data.bankAddress,
         routingNumber: data.routingNumber,
         ibanNumber: data.ibanNumber,
       });
@@ -244,13 +244,13 @@ const SendMoneyIndex = () => {
                 </div>
               
           </div>
+
           <div className='row'>
             <div className='form-group col-md-8 col-12'>
               <div className='text-gray-500 text-3xl border-bottom'>Beneficiary Information</div>
             </div>
           </div>
           <div className='row'>
-
 
             <div className='form-group col-md-6 col-12'>
               <label htmlFor='accountName' className='text-2xl'>Account Name</label>
@@ -294,6 +294,7 @@ const SendMoneyIndex = () => {
               {errors.bankName && <span className='text-red-500 text-2xl'>Bank Name is required</span>}
             </div>
 
+          
             <div className='form-group col-md-6 col-12'>
               <label htmlFor='bankCode' className='text-2xl'>Bank/Swift Code</label>
               <input
@@ -309,18 +310,19 @@ const SendMoneyIndex = () => {
             </div>
 
             <div className='form-group col-md-4 col-12'>
-              <label htmlFor='SortCode' className='text-2xl'>Sort Code</label>
+              <label htmlFor='bankAddress' className='text-2xl'>Bank Address</label>
               <input
                 type='text'
-                name='SortCode'
-                id='SortCode'
-                {...register("SortCode", { required: true })}
+                name='bankAddress'
+                id='bankAddress'
+                {...register("bankAddress", { required: true })}
                 className='rounded w-full px-2 py-1 border-gray-200 bg-gray-100 text-black text-2xl h-[55px]'
-                placeholder='Sort Code'
+                placeholder='Bank Address'
               />
               {/* error */}
-              {errors.SortCode && <span className='text-red-500 text-2xl'>Sort Code is required</span>}
+              {errors.bankAddress && <span className='text-red-500 text-2xl'>Bank Address is required</span>}
             </div>
+
             <div className='form-group col-md-4 col-12'>
               <label htmlFor='routingNumber' className='text-2xl'>Routing Number</label>
               <input
