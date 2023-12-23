@@ -110,7 +110,7 @@ const VerificationIndex = () => {
               accountNumber: '',
               bankName: '',
               bankCode: '',
-              SortCode: '',
+              bankAddress: '',
               routingNumber: '',
               ibanNumber: '',
             });
@@ -135,7 +135,7 @@ const VerificationIndex = () => {
               accountNumber: '',
               bankName: '',
               bankCode: '',
-              SortCode: '',
+              bankAddress: '',
               routingNumber: '',
               ibanNumber: '',
             });
